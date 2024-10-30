@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Halaman Result{% endblock %}
+
+{% block header %}
+  <header>
+     Smart Dashboard V.01
+  </header>
+{% endblock %}
+
+{% block lis %}
+        <li style="float:right"><a id="log" href="/logout">Logout</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Halaman Result</h2>
+    <p>
+      Ini adalah Data Barang!.
+    </p>
+    <table border="1">
+      {%for value in result %}
+      <tr>
+        <td> ID </td>
+        <td> <b> {{value[0]}}</b></td>
+      </tr>
+      <tr>
+        <td> Nama Barang </td>
+        <td> <b> {{value[1]}}</b></td>
+      </tr>
+      <tr>
+        <td> Quantity </td>
+        <td> <b> {{value[2]}}</b></td>
+      </tr>
+      <tr>
+        <td> Description </td>
+        <td> <b> {{value[3]}}</b></td>
+      </tr>
+      {% endfor %}
+    </table>
+  <a class="button buttonDel" href="/tampil_barang"> << Back to Data Barang</a>
+</div>
+{% endblock %}
+

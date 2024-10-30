@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Halaman Barang{% endblock %}
+
+{% block header %}
+  <header>
+     Smart Dashboard V.01
+  </header>
+{% endblock %}
+
+{% block lis %}
+        <li style="float:right"><a id="log" href="/logout">Logout</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Edit Barang</h2>
+    <p>
+      Silahkan update data barang sesuai keinginan.
+    </p>
+    {%for item in result %}
+  <form action="{{ url_for('update_barang',idb=item[0]) }}" method="POST">
+      <input placeholder="Enter ID..." value="{{ item[0] }}" required type="text" name="idb" />
+      <input placeholder="Enter Name..." value="{{ item[1] }}" required type="text" name="name" />
+      <input placeholder="Enter Quantity..." value="{{ item[2] }}" required type="text" name="qa" />
+      <input placeholder="Enter Description..." value="{{ item[3] }}" required type="text" name="des" /> <br>
+      <a class="button buttonDel"  href="{{ url_for('tampil_barang')}}"> << Back</a>
+      <button class="button buttonAdd" type="submit" > Update >></button>
+    {% endfor %}
+  </form>
+
+</div>
+{% endblock %}
+

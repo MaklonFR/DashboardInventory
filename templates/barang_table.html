@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Halaman Result{% endblock %}
+
+{% block header %}
+  <header>
+     Smart Dashboard V.01
+  </header>
+{% endblock %}
+
+{% block lis %}
+        <li style="float:right"><a id="log" href="/logout">Logout</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="container_table">
+  <h1>Barang List</h1>
+
+      {% for message in get_flashed_messages() %}
+        {% if message == "OKSave" %}
+            <div class="alert_success">
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+              <strong>Successfully Save Data!</strong>
+            </div>
+        {% elif message =="ERROR": %}
+            <div class="alert_error">
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                  <strong>Error save data!</strong>
+            </div>
+        {% elif message =="OKDel": %}
+            <div class="alert_success">
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                  <strong>Delete Data Successfully!</strong>
+            </div>
+        {% elif message =="OKEdit": %}
+            <div class="alert_success">
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                  <strong>Update Data Successfully!</strong>
+            </div>
+        {% endif %}
+      {% endfor %}
+
+    <a class="button buttonAdd" href="/barang">Add Barang</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nama Barang</th>
+            <th>Quantity</th>
+            <th>Description</th>
+            <th>Aksi</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+            <td>
+                <a class="buttonShow button_tbl" href="{{ url_for('show_barang', idb=item[0]) }}">Show</a>
+                <a class="buttonEdit button_tbl" href="{{ url_for('edit_barang', idb=item[0]) }}">Edit</a>
+                <a class="buttonDel button_tbl" href="{{ url_for('delete_barang', idb=item[0]) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
+

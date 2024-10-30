@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Halaman Login{% endblock %}
+
+{% block header %}
+  <header>
+    Smart Dashboard V.01
+  </header>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Halaman Login</h2>
+   <p>
+      Welcome on my awesome login page.
+    </p>
+
+  <form action="/login" method="POST">
+    <input placeholder="Enter your name..." type="text" name="username" /> <br>
+    <input placeholder="Enter your password..." type="password" name="password" /> <br>
+    <button class="button" style="background-color:blue" type="submit"> Login </button>
+  </form>
+
+      {% for message in get_flashed_messages() %}
+        <div class="alert_error">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          <strong>{{ message }}!</strong>
+        </div>
+      {% endfor %}
+
+</div>
+{% endblock %}
+
+

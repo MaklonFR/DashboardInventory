@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Halaman Student{% endblock %}
+
+{% block header %}
+  <header>
+     Smart Dashboard V.01
+  </header>
+{% endblock %}
+
+{% block lis %}
+        <li style="float:right"><a id="log" href="/logout">Logout</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Halaman Barang</h2>
+    <p>
+      Welcome on my awesome Data Barang.
+    </p>
+  <form action="/add_barang" method="POST">
+      <input placeholder="Enter Name..." type="text" name="name" />
+      <input placeholder="Enter Quantity..." type="text" name="qa" />
+      <input placeholder="Enter Description..." type="text" name="des" />
+    <button class="button" style="background-color:blue" type="submit"> Submit </button>
+  </form>
+
+</div>
+{% endblock %}
+

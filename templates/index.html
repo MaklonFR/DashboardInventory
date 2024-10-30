@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block meta %}
+  <meta http-equiv="refresh" content="2">
+{% endblock %}
+{% block title %}Halaman Home{% endblock %}
+
+{% block header %}
+  <header>
+    Smart Dashboard V.01
+  </header>
+{% endblock %}
+
+{% block lis %}
+        <li style="float:right"><a id="log" href="/logout">Logout</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="container_haeder">
+      {% for message in get_flashed_messages() %}
+        <div class="alert_success">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          <strong>{{ message }}!</strong>
+        </div>
+      {% endfor %}
+
+    <h2> Hello {{username}} <br> Dashboard Inventory Management System</h2>
+
+ <!-- <img src="../static/img/img1.png" alt="My Image"  width="550" height="350"> -->
+    <div class="row">
+      <div class="column">
+          <div class="container">
+              <div class="row">
+                    <h2>DATA SENSOR SUHU</h2>
+                    <div id="suhu"> {{suhu}} </div>
+                    <h1 style="background-color: #FFDC7F">STATUS</h1>
+                    <div id="fanStatus">
+                         <h2>
+                           {% if ((suhu > 16) and (suhu < 31)) %}
+                             <h2 style='color:green'>NORMAL</h2>
+                             {% elif suhu < 17 %}
+                             <h2 style='color:blue'>DINGIN</h2>
+                             {% elif suhu > 30 %}
+                             <h2 style='color:red'>PANAS</h2>
+                          {% endif %}
+                         </h2>
+                    </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="column" >
+          <div class="container">
+            <h2>KONTROL LAMPU</h2>
+            <div class="center">
+                <a href="/lampu/on"  class="button buttonON">ON</a>
+                <a href="/lampu/off"  class="button buttonOFF">OFF</a>
+            </div>
+
+            <h1 style="background-color: #FFDC7F">STATUS</h1>
+            <h2  id="status">
+                {% if lampu==1 %}
+                    ON
+                {% else %}
+                    OFF
+                {% endif %}
+            </h2>
+          </div>
+      </div>
+
+    </div>
+
+ </div>
+{% endblock %}
+

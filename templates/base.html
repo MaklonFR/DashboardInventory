@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block meta %} {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}{% endblock %} </title>
+</head>
+<body>
+<div class="header">{% block header %}{% endblock %}</div>
+  <nav>
+    <ul>
+      <li><a href="/home">Dashboard</a></li>
+      <li><a href="/tampil_barang">Data Barang</a></li>
+      <li><a href="/about">About</a></li>
+        {% block lis %}{% endblock %}
+    </ul>
+  </nav>
+<div id="content">{% block content %}{% endblock %}</div>
+
+</body>
+</html>

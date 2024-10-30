@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Halaman About{% endblock %}
+
+{% block header %}
+  <header>
+     Smart Dashboard V.01
+  </header>
+{% endblock %}
+
+{% block lis %}
+        <li style="float:right"><a id="log" href="/logout">Logout</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Halaman About</h2>
+  <p>
+    Welcome on my awesome aboutpage.
+  </p>
+  <iframe width="500" height="315" src="https://www.youtube.com/embed/6PzgaeBf1qA?si=MPeb0S1f7qCtxSHh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+  </iframe>
+</div>
+{% endblock %}
+
